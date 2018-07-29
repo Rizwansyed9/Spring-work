@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {height: 100%;
+    margin: 0;
+    
+padding:5px;}
+h3{
+ 
+color:#212121;
+}
+h4{
+color:#1b1b1b;
+}
+p,li{
+  font-size: 16px;
+color:#757575;
+}
+.card {
+background-color:#ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+
+    padding: 1px 8px;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	 font-size: 12px;
+  line-height: 1.375;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+.tip {
+    background-image: url(https://www.w3schools.in/wp-content/uploads/tip.png);
+    padding: 10px 10px 10px 50px;
+    background-position: 10px 20px;
+    background-repeat: no-repeat;
+	display: table;
+    border: 2px solid #DDD;
+    border-left: 3px solid #32cd32;
+    margin-left: 0;
+
+
+    border-radius: 3px;
+}
+.tip2{
+  padding: 10px 10px 10px 10px;
+    background-position: 10px 20px;
+    background-repeat: no-repeat;
+	display: table;
+    border: 2px solid #DDD;
+    border-left: 3px solid #32cd32;
+    margin-left: 0;
+
+
+    border-radius: 3px;
+
+}
+
+img {
+    max-width: 100%;
+    max-height: 100vh;
+    height: auto;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="card">
+ 
+  <div class="container">
+<h3>Aspect Oriented Programming (AOP)</h3>
+<p>AOP stands for Aspect Oriented Programming; it is a programming model or paradigm that allows you to apply cross-cutting logic across various components of your application in a decoupled manner.<br><br> 
+How we have Object oriented programming, similarly AOP is also a programming paradigm, which defines some set of principles. If you write a program following the AOP principles then it is called AOP style of programming.<br><br> 
+In every program there will be two types of logic, one is called primary business logic and other one is helper logic which makes your primary business logic work better. For example calculating the loan amount will be primary business logic, but in addition we may write some logging, here logging is called secondary logic because without logging our functionality will be fulfilled but without loan calculation logic we cannot say our application is complete.<br><br> 
+Now logging will be written in one place of the application or will be written across several, as logging will be done across various components of the application so it is called cross-cutting logic.<br><br> 
+Generalized examples of cross-cutting concerns are Auditing, Security, Logging, Transactions, Profiling and Caching etc.<br><br> 
+In a traditional OOPS application if you want to apply a piece of code across various classes, you need to copy paste the code or wrap the code in a method and call at various places. The problem with this approach is your primary business logic is mixed with the cross-cutting logic and at any point of time if you want to remove your crosscutting concern; you need to modify the source code.  So, in order to overcome this, AOP helps you in separating the business logic from cross-cutting concerns.<br><br> 
+By the above, we can understand that AOP compliments OOP but never AOP replaces OOP. The key unit of modularity in OOP is class, whereas in AOP it is Aspect. As how we have various principles of OOP like abstraction, encapsulation etc., AOP also has principles describing the nature of its use. Following are the AOP principles.</p>    
+<div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">AOP Principles </span></div>
+<ol>
+<li>Aspect - Aspect is the piece of code that has to be applied across various classes of the application</li>
+<li>JoinPoint - The point at which you want to apply the aspect logic, generally in spring you can apply an aspect at method execution </li>
+<li>Advice - Action taken by an aspect at a particular JoinPoint. Advice indicates how you want to apply the aspect on a joinpoint. There are multiple types of advices like before advice, after returning advice, around advice and throws advice</li>
+<li>Pointcut - Collection of joinpoint representing on whom you want to advice the aspect</li>
+<li>Target - The class on which you want to advice the aspect.</li>
+<li>Weaving - The process of advising a target class with an aspect based on a pointcut to build proxy</li>
+<li>Proxy - The outcome of weaving is called proxy, where the end class generated out of weaving process contains cross-cutting logic as well</li>
+</ol>
+<p>AOP is not something specific to spring; rather it is a programming technic similar to OOP, so the above principles are generalized principles which can be applied to any framework, supporting AOP programming style.<br><br> 
+There are many frameworks in the market which allows you to work with AOP programming few of them are Spring AOP, AspectJ, JAC (Java aspect components), JBossAOP etc. Among which the most popular once are AspectJ and Spring AOP.<br><br> 
+Let's try to compare the features between Spring AOP and AspectJ AOP. </p>
+<table>
+  <tr>
+    <th>Spring AOP</th>
+    <th>AspectJ AOP</th>
+    
+  </tr>
+  <tr>
+    <td>
+<li>Only supported joinpoint is method execution</li>
+<li>Spring supports run-time weaving; this means the proxy objects will be built on fly at runtime in the memory</li>
+<li>Spring supports static and dynamic pointcuts </li>
+	</td>
+    <td>
+<li>It supports various types of Joinpoints like constructor execution, method execution, field set or field get etc.</li>
+<li>AspectJ uses compile-time weaving; this indicates your proxy classes will be available whenever you compile your code </li>
+<li>AspectJ supports only static pointcuts</li>	
+   </td>
+</tr>
+</table>
+<p>At the time spring released AOP, already aspectj AOP has acceptance in the market, and seems to be more powerful than spring AOP. Spring developers instead of comparing the strengths of each framework, they have provided integrations to AspectJ to take the advantage of it, so spring 2.x not only supports AOP it allows us to work with AspectJ AOP as well.<br><br> 
+In spring 2.x it provided two ways of working with AspectJ integrations, 1) Declarative programming model 2) AspectJ Annotation model. With this we are left with three ways of working with spring AOP as follows</p>
+<ol>
+<li>Spring AOP API (alliance API) – Programmatic approach</li>
+<li>Spring AspectJ declarative approach </li>
+<li>AspectJ Annotation approach </li>
+</ol>
+<p>Even spring has integrated with AspectJ, it supports only few features of AspectJ described as below.</p>
+<ol>
+<li>Still the supported Joinpoint is only a method execution.</li>
+<li>Spring doesn't rely on AspectJ weaving capabilities, and uses its own weaving module so the weaving will happens at run-time.</li>
+<li>As AspectJ doesn't support dynamic pointcut's, integrating with spring doesn't make any difference.</li>
+</ol>
+<img src="../images/five1.jpg" width="100%" height="200px">
+<p>As described the weaving process will happen at run-time, in order to generate a class at run-time, spring uses proxy generation libraries.  Spring supports two proxy generation libraries CGLib and JDKProxy run-time bytecode generation libraries to generate proxy classes on fly.</p>
+<div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">Types of Advices</span></div>
+<p>Spring AOP implementation supports 4 types of advices, each one is described below.</p>
+<ol>
+<li>Around advice - This is the advice that executes the aspect around the target class joinpoint, so here the advice method will be called before the target class method execution. So, the advice can control the target method execution</li>
+<li>Before advice - In this always the advice method executes before the target class method executes. Once the advice method finishes execution the control will not returned back to the advice method. </li>
+<li>After Returning advice - Here the advice method executes after the target class method finishes execution, but before it returns the value to the caller.</li>
+<li>Throws Advice - This advice method will be invoked only when the target class method throws an exception.</li>
+</ol>
+<p>Let us try to understand how to work with various advices using different AOP programming styles in the following section.</p>
+<div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">Programmatic AOP </span></div>
+<p>We use Spring AOP API's to work with programmatic AOP. As described programmatic aop supports all the types of advices described above. Let us try to work with each advice type in the following section</p>
+<p  style="font-weight:bold;color:#212121">Around Advice</p>
+<p>Aspect is the cross-cutting concern which has to be applied on a target class; advice represents the action indicating when to execute the aspect on a target class. Based on the advice type we use, the aspect will gets attached to a target class. If it is an around advice, the aspect will be applied before and after, which means around the target class joinpoint execution.<br><br> 
+If we have a usecase which demands for applying a cross-cutting concern around the target class joinpoint, we need to use around advice, one of the example for this caching.<br><br>  
+Always the around advice method will be executed before your target class method executes by passing the entire target method call information to it. In an around advice we have three control points described below</p>
+<ol>
+<li>We have control over arguments; it indicates we can modify the arguments before executing the target class method</li>
+<li>We can control the target class method execution in the advice. This means we can even skip the target class method execution</li>
+<li>We can even modify the return value being returned by the target class method</li>
+</ol>
+<p>In order to work with any advice, first we need to have a target class, let us build the target class first.</p>
+<p  style="font-weight:bold;color:#212121">Math.java</p>
+<pre ><code class="language-java">package com.aa.beans; 
+public class Math {  
+public int add(int a, int b) {   
+return a + b;  
+} 
+public int multiply(int a, int b) {   
+return a * b;  
+} 
+} </code></pre>
+<p>After creating the target class, we need to code the aspect representing the advice it is using. Create a class for example LoggingAspect which implements from MethodInterceptor and need to override the method invoke; this method accepts a parameter MethodInvocation, into which the entire information about the actual method would be passed.<br><br> 
+You can access the original parameters with which the add method was called from MethodInterceptor by calling getArguments method on it. Along with this you can control the method execution by calling methodInterceptor.proceed(); Up on calling the proceed() method, the target method executes, if we don't call proceed() method, the target class method will never get executed. Up on finishing the target method execution the return value being returned by target method will be given to advice method. Here the advice can modify the return value and can return to the caller show below.</p>
+<p  style="font-weight:bold;color:#212121">LoggingAspect.java </p>
+<pre ><code class="language-java">package com.aa.beans; 
+import org.aopalliance.intercept.MethodInterceptor; 
+import org.aopalliance.intercept.MethodInvocation; 
+public class LoggingAspect implements MethodInterceptor { 
+@Override  public Object invoke(MethodInvocation methodInvocation) throws Throwable {   
+Object args[] = methodInvocation.getArguments();   
+String methodName = methodInvocation.getMethod().getName();   
+// log statement before execution   
+System.out.println("entering into method : " + methodName + 
+                                             "("     + args[0] + "," + args[1] + ")"); 
+// modify arguments before calling   
+args[0] = (Integer) args[0] + 10;   
+args[1] = (Integer) args[1] + 10;   
+// proceed() calls the target method add   
+Object ret = methodInvocation.proceed(); 
+// log statement after exection   
+System.out.println("exiting the method : " + methodName + "(" + args[0]     
+                                            + "," + args[1] + ") return value : " + ret); 
+// modify return value   ret = (Integer) ret + 10;   return ret;  } } </code></pre>
+<p>In the above code the invoke method is executed when we call add method on the proxy object, by passing the information about the method call to MethodInvocation argument. Before calling the proceed() method, we are modifying the parameters, so that with these modified values proceed will be called. Once the target method execution finishes it returns the value as object in the proceed() method call. Here the advice can modify the return value and can return to the called.<br><br> 
+Once the target and advice has been built, we can perform weaving to attach the aspect to the target. In order to perform weaving to build proxy, we need to use ProxyFactory class. To the ProxyFactory we need to add Advice and supply the target class on to which you want to apply that advice. The ProxyFactory will apply the advice on that given target and generates an in-memory proxy class and instantiates and returns that object. As we are working on Programmatic AOP, the weaving process will be done programmatically</p>
+<p  style="font-weight:bold;color:#212121">AATest.java</p>
+<pre ><code class="language-java">package com.aa.test; 
+import org.springframework.aop.framework.ProxyFactory; 
+import org.springframework.aop.support.DefaultPointcutAdvisor; 
+import com.aa.beans.LoggingAspect; 
+import com.aa.beans.LoggingDynamicPointcut; 
+import com.aa.beans.LoggingStaticPointCut; 
+import com.aa.beans.Math; 
+public class AATest { 
+public static void main(String[] args) {   
+ProxyFactory pf = new ProxyFactory();   
+pf.addAdvice(new LoggingAspect()));   
+pf.setTarget(new Math()); 
+Math math = (Math) pf.getProxy();   
+System.out.println("Sum : " + math.add(4, 20));   
+//System.out.println("Multiplication : " + math.multiply(1, 2));  
+} 
+}  </code></pre>
+<p  style="font-weight:bold;color:#212121">Before Advice</p>
+<p>In a Before advice always the advice method executes before your target class joinpoint executes. Once the advice method finishes execution the control will be automatically transferred to the target class method and will not be returned back to the advice. So, in a Before Advice we have only one control point, which is only we can access arguments and can modify them. Below list describes the control points in a Before Advice.</p>
+<ol>
+<li>Can access and modify the arguments of the original method</li>
+<li>Cannot control the target method execution, but we can abort the execution by throwing an exception in the advice method</li>
+<li>Capturing and modifying the return value is not applicable as the control doesn’t return back to the advice method after finishing you target method.</li>
+</ol>
+<p>In order to create a Before Advice, we need to first build a target class. Then we need to create an Aspect class which implements from MethodBeforeAdvice and should override before method. This method has three arguments java.reflect.Method method, Object[] args and Object targetObject. Using these paramters we can access the original method arguments and the method information. 
+Even we can modify the values in the args array so that with these modified values the target method will gets invoked. Common applications of Before Advice are Security, Authorization etc. Following examples shows the same. </p>
+<p  style="font-weight:bold;color:#212121">LoanCalculator.java </p>
+<pre ><code class="language-java">package com.ba.beans; 
+public class LoanCalculator {  
+public float calculateInterest(Long principle, int noOfYears,    float rateOfInterest) {   
+return (principle * noOfYears * rateOfInterest) / 100;  
+} 
+} </code></pre>
+<p>LoanCalculator is the target class, before calling the calculateInterest, we want to check whether the caller is logged in and authenticated to call the method or not. We can check this in the calculateInterest() method itself, but if we don't want impose security check for this method, we need to modify source of this method to get rid of cross-cutting security code. Instead we will handle this security check to a MethodBeforeAdvice, where in the advice method we will check for security and if the security check has been passed then the control will be passed to calculateInterest() method otherwise the advice method will throw exception.</p>
+<p  style="font-weight:bold;color:#212121">UserInfo.java (Class holding username and password values) </p>
+<pre ><code class="language-java">package com.ba.beans; 
+ 
+public class UserInfo {  private String userName;  private String password; 
+ 
+ public UserInfo(String userName, String password) {   this.userName = userName;   this.password = password;  } 
+ 
+ // setter and getters on userName and password attributes } </code></pre>
+<p  style="font-weight:bold;color:#212121">AuthenticationManager.java (helper class to perform login, authenticate and logout)</p>
+<pre ><code class="language-java">package com.ba.beans; 
+public class AuthenticationManager {  
+private static ThreadLocal<UserInfo> 
+threadLocal = new ThreadLocal<UserInfo>(); 
+public void login(String un, String pwd) {   
+threadLocal.set(new UserInfo(un, pwd));  } 
+public void logout() {   
+threadLocal.set(null);  } 
+public boolean isAuthenticated() {   
+boolean flag = false;   
+UserInfo userInfo = threadLocal.get();   
+if (userInfo != null) {    
+if (userInfo.getUserName().equals("john")      
+&& userInfo.getPassword().equals("welcome1")) {     
+flag = true;    
+}   
+}   
+return flag;  
+} 
+} </code></pre>
+<p  style="font-weight:bold;color:#212121">SecurityAspect.java (Aspect class which executes before target method execution)</p>
+<pre ><code class="language-java">package com.ba.beans; 
+import java.lang.reflect.Method; 
+import org.springframework.aop.MethodBeforeAdvice; 
+public class SecurityAspect implements MethodBeforeAdvice { 
+@Override  public void before(Method method, Object[] args, Object target)    throws Throwable {   
+System.out.println("entering into method : " + method); 
+// check authenticated   AuthenticationManager am = new AuthenticationManager();   
+boolean flag = am.isAuthenticated();   
+if (flag == false) {    
+throw new IllegalAccessException("Invalid username/password");   
+} 
+// if authentication success   
+// modify arguments   args[0] = (Long) args[0] + 33;  
+} 
+} </code></pre>
+<p>The code for building the proxy is same as for around advice. In the above the before method in the advice will executes before the calculateInterest() method in LoanCalculator class, here we are checking whether the user is authenticated to access the method or not. If not authenticated, will throw IllegalAccessException and aborting the calculateInterest() method execution.</p>
+<p  style="font-weight:bold;color:#212121">BATest.java</p>
+<pre ><code class="language-java">package com.ba.test; 
+import org.springframework.aop.framework.ProxyFactory; 
+import com.ba.beans.AuthenticationManager; 
+import com.ba.beans.LoanCalculator; 
+import com.ba.beans.SecurityAspect; 
+public class BATest { 
+public static void main(String[] args) {   
+ProxyFactory pf = new ProxyFactory();   
+pf.addAdvice(new SecurityAspect());   
+pf.setTarget(new LoanCalculator());   
+LoanCalculator proxy = (LoanCalculator) pf.getProxy();   
+AuthenticationManager am = new AuthenticationManager();   
+am.login("john", "welcome1");      
+System.out.println("Interest : " + proxy.calculateInterest(10L, 1, 12.0f));  
+} 
+} </code></pre>
+<p  style="font-weight:bold;color:#212121">After Returning Advice</p>
+<p>In this the advice method will be executed only after the target method finishes execution and before it returns the value to the caller. This indicates that the target method has almost returned the value, but just before returning the value it allows the advice method to see the return value but doesn't allows to modify it. So, in a After returning advice we have the below control points.</p>
+<ol>
+<li>We can see parameters of the target method, even we modify there is no use, because by the time the advice method is called the target method finished execution, so there is no effect of changing the parameter values.</li>
+<li>You cannot control the target method execution as the control will enters into advice method only after the target method completes.</li>
+<li>You can see the return value being returned by the target method, but you cannot modify it, as the target method has almost returned the value. But you can stop/abort the return value by throwing exception in the advice method</li>
+</ol>
+<p>In order to create an After returning advice, after building the target class, you need to write the aspect class implementing the AfterReturningAdvice and should override the method afterReturning, the parameters to this method are Object returnValue (returned by actual method), java.reflect.Method method (original method), Object[] args (target method arguments), Object targetObject (with which the target method has been called)<br><br>
+If you observe in the below example, the return value of afterReturning method is void, which means you cannot modify and return the return value.</p>
+<p  style="font-weight:bold;color:#212121">KeyGenerator.java</p>
+<pre ><code class="language-java">package com.ar.beans; 
+import java.util.Random; 
+public class KeyGenerator {  
+public int generateKey(int size) {   
+Random random = new Random(size);   
+random.setSeed(5);   
+int key = random.nextInt(); 
+return key;  
+} 
+} </code></pre>
+<p  style="font-weight:bold;color:#212121">WeakKeyCheckerAspect.java (aspect checks whether the key computed by KeyGenerator class is strong or weak key) </p>
+<pre ><code class="language-java">package com.ar.beans; 
+import java.lang.reflect.Method; 
+import org.springframework.aop.AfterReturningAdvice; 
+public class WeakKeyCheckerAspcect implements AfterReturningAdvice { 
+@Override  public void afterReturning(Object retVal, Method method, Object[] args,Object target) throws Throwable {   
+if ((Integer) retVal <= 0) {    
+throw new IllegalArgumentException("Weak Key Generated");   
+}  
+} 
+} </code></pre>
+<p  style="font-weight:bold;color:#212121">Throws Advice</p>
+<p>Throws advice will be invoked only when the target class method throws exception. The idea behind having a throws advice is to have a centralized error handling mechanism or some kind of central processing whenever a class throws exception.<br><br> 
+As said unlike other advices, throws advice will be called only when the target throws exception. The throws advice will not catch the exception rather it has a chance of seeing the exception and do further processing based on the exception, once the throws advice method finishes execution the control will flow through the normal exception handling hierarchy till a catch handler is available to catch it.</p>
+<p>Following are the control points a throws advice has.</p>
+<ol>
+<li>It can see the parameters that are passed to the original method </li>
+<li>There is no point in controlling the target method execution, as it would be invoked when the target method rises as exception</li>
+<li>When a method throws exception, it cannot return a value, so there is nothing like seeing the return value or modifying the return value.</li>
+</ol>
+<p>In order to work with throws advice, after building the target class, you need to write a class implementing the ThrowsAdvice interface. The ThrowsAdvice is a marker interface this means; it doesn't define any method in it. You need to write method to monitor the exception raised by the target class, the method signature should public and void with name afterThrowing, taking the argument as exception class type indicating which type of exception you are interested in monitoring (the word monitoring is used here because we are not catching the exception, but we are just seeing and propagating it to the top hierarchies).<br><br> 
+When a target class throws exception spring IOC container will tries to find a method with name afterThrowing in the advice class, having the appropriate argument representing the type of exception class. We can have afterThrowing method with two signatures shown below.</p>
+<pre ><code class="language-java">afterThrowing([Method, args, target], subclassOfThrowable) </code></pre>
+<p>In the above signature, Method, args and target is optional and only mandatory parameter is subclassOfThrowable. If a advice class contains afterThrowing method with both the signatures handling the same subclassOfThrowable, the max parameter method will be executed upon throwing the exception by target class.<br><br> 
+Below example shows the same.</p>
+<p  style="font-weight:bold;color:#212121">Thrower.java </p>
+<pre ><code class="language-java">package com.ta.beans; 
+public class Thrower {  
+public int willThrow(int i) {   
+if (i <= 0) {    
+throw new IllegalArgumentException("Invalid parameter i");   
+}   
+return i + 10;  
+} 
+}  </code></pre>
+<p  style="font-weight:bold;color:#212121">ExceptionLoggerAspect.java</p>
+<pre ><code class="language-java">package com.ta.beans; 
+import java.lang.reflect.Method; 
+import org.springframework.aop.ThrowsAdvice; 
+public class ExceptionLoggerAspect implements ThrowsAdvice {  
+public void afterThrowing(IllegalArgumentException ie) {   
+System.out.println("thrown : " + ie.getMessage());  
+} 
+public void afterThrowing(Method method, Object[] args, Object target,    
+IllegalArgumentException ie) {   
+System.out.println("Exception thrown by : " + method.getName() + 
+             "("     + args[0] + ") with exception message : " + ie.getMessage());  
+} 
+} </code></pre>
+<p  style="font-weight:bold;color:#212121">Pointcut</p>
+<p>In all the above examples, we haven't specified any pointcut while advising the aspect on a target class; this means the advice will be applied on all the joinpoints of the target class.With this all the methods of the target class will be advised, so if you want to skip execution of the advice logic on a specific method of a target class, in the advice logic we can check for the method name on which the advice is being called and based on it we can execute the logic.<br><br> 
+The problem with the above approach is even you don’t want to execute the advice logic for some methods, still the call to those methods will delegate to advice, this has a performance impact.</p>
+<p>In order to overcome this you need to attach a pointcut while performing the weaving, so that the proxy would be generated based on the pointcut specified and will do some optimizations in generating proxies.<br><br> 
+With this if you call a method that is not specified in the pointcut, spring ioc container will makes a direct call to the method rather than calling the advice for it.<br><br> 
+Spring AOP API supports two types of pointcuts as discussed earlier. Those are static and dynamic pointcuts. All the pointcut implementations are derived from org.springframework.aop.Pointcut interface. Spring has provided in-built implementation classes from this Interface. Few of them are described below.</p>
+<p>Static Pointcut</p>
+<ol>
+<li>StaticMethodMatcherPointcut </li>
+<li>NameMatchMethodPointcut</li>
+<li>JdkRegexpMethodPointcut</li>
+</ol>
+<p>Dynamic Pointcut</p>
+<ol>
+<li>DynamicMethodMatcherPointcut</li>
+</ol>
+<p  style="font-weight:bold;color:#212121">Static Pointcut</p>
+<p>In order to use a StaticMethodMatcherPointcut, we need to write a class extending from StaticMethodMatcherPointcut and needs to override the method matches. The matches method takes arguments as Class and Method as arguments.<br><br> 
+Spring while performing the weaving process, it will determines whether to attach an advice on a method of a target class by calling matches method on the pointcut class we supplied, while calling the method it will passes the current class and method it is checking for, if the matches method returns true it will advise that method, otherwise will skip advicing.</p>
+<p  style="font-weight:bold;color:#212121">LoggingStaticPointcut.java</p>
+<pre ><code class="language-java">package com.aa.beans; 
+import java.lang.reflect.Method; 
+import org.springframework.aop.support.StaticMethodMatcherPointcut; 
+public class LoggingStaticPointCut extends StaticMethodMatcherPointcut { 
+@Override  public boolean matches(Method method, Class<> targetClass) {   
+if (Math.class == targetClass && method.getName().equals("multiply")) {    
+return true;   
+}   
+return false;  
+} 
+} </code></pre>
+<p>While performing the weaving, we need to supply the pointcut as input to the ProxyFactory as shown below.</p>
+<p  style="font-weight:bold;color:#212121">BATest.java (Skipped logic for clarity)</p>
+<pre ><code class="language-java">ProxyFactory pf = new ProxyFactory();   
+pf.addAdvisor(new DefaultPointcutAdvisor(new LoggingDynamicPointcut(), new LoggingAspect()));   
+pf.setTarget(new Math()); 
+Math math = (Math) pf.getProxy();  </code></pre>
+<p  style="font-weight:bold;color:#212121">Dynamic Pointcut</p>
+<p>If you observe in static pointcut we have hardcoded the class and method names on whom we need to advice the aspect. So, the decision of advising the aspect on a target would be done at the time of weaving and would not be delayed till the method call. In case of Dynamic Pointcut, the decision of whether to attach an aspect on a target class would be made based on the parameters with which the target method has been called. </p>
+<p  style="font-weight:bold;color:#212121">LoggingDynamicPointcut.java </p>
+<pre ><code class="language-java">package com.aa.beans; 
+import java.lang.reflect.Method; 
+import org.springframework.aop.support.DynamicMethodMatcherPointcut; 
+public class LoggingDynamicPointcut extends DynamicMethodMatcherPointcut {  
+@Override  public boolean matches(Method method, Class<> targetClass, Object[] args) {   
+if (Math.class == targetClass && method.getName().equals("add") && (Integer) args[0] > 5) {    
+return true;   
+}   
+return false;  
+} 
+} </code></pre>
+<img src="../images/five2.jpg" width="100%" height="200px">
+
+<div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">Declarative AOP </span></div>
+<p>Spring 2.x has added support to declarative AspectJ AOP. The main problem with programmatic approach is your application code will tightly couple with spring, so that you cannot detach from spring. If you use declarative approach, your advice or aspect classes are still pojo's, you don't need to implement or extend from any spring specific interface or class. Your advice classes uses AspectJ AOP API classes, in order to declare the pojo as aspect you need to declare it in the configuration file rather than weaving it using programmatic approach. 
+The declarative approach also supports all the four types of advices and static pointcut. In the following section we will explore through the example how to work with various types of advices declaratively.</p>
+<p  style="font-weight:bold;color:#212121">Around Advice</p>
+<p>In this approach the aspect class is not required to implement from any spring specific class or interface, rather it should be declared as aspect in configuration file. In the aspect class you need to declare any arbitrary method with the following signature.</p>
+<pre ><code class="language-java">public Object methodName(ProceedingJoinPoint pjp) </code></pre>
+<p>This acts as an advice method. The return type of the method should be Object as the around advice has control over the return value. The advice method name could be anything but should take the parameter as ProceedingJoinPoint, the method on a target class is called JoinPoint in AOP, as we can control the execution of the Joinpoint in Around advice, so the parameter for this method should be ProceedingJoinPoint.<br><br> 
+Using the ProceedingJoinPoint, you can access the actual method information similar to MethodInterceptor. You will declare this method as around advice method in the configuration file using &ltaop:config&gt tag, which is discussed in the example below.<br><br> 
+In this example we are going to apply the aspect on the same Math.java class which we discussed in Programmatic approach</p>
+<p  style="font-weight:bold;color:#212121">LoggingAspect.java</p>
+<pre ><code class="language-java">package com.aa.beans; 
+import org.aspectj.lang.ProceedingJoinPoint; 
+public class LoggingAspect {  
+public Object log(ProceedingJoinPoint pjp) throws Throwable {   
+String methodName = pjp.getSignature().getName();   
+Object args[] = pjp.getArgs(); 
+System.out.println("entering into " + methodName + "(" + args[0] + "," + args[1] + ")");   
+// modify parameters   args[0] = (Integer) args[0] + 10;   
+Object ret = pjp.proceed(args); 
+System.out.println("exiting from " + methodName + "(" + args[0] + "," + args[1] + ") 
+                                                  with return value (original) : " + ret);   
+// modify ret val   ret = (Integer) ret + 10;   
+System.out.println("exiting from " + methodName + "(" + args[0] + ","     + args[1] + ") 
+                                                  with return value (modified) : " + ret);  
+return ret;  
+} 
+} </code></pre>
+<p>If you see the above class, we haven't implemented or extended from any interface or class, so in order to make this as aspect class you need to provide this in the spring beans configuration file.<br><br> 
+First we need to declare our target and aspect classes as beans. While declaring a class as a aspect, you need to import the "aop" namespace and need to use the tag &ltaop:config&gt. Inside the &ltaop:config&gt take we need to declare the bean as aspect using &ltaop:aspect ref="aspectbeanid">. Under this you need to declare which method you want to expose as advice method and how do you want to apply this method like around or before or afterReturning etc. Once this is done you need to supply the pointcut indicating on which target class methods you want to apply the aspect. The configuration has been show in the below code snippet.</p>
+<p  style="font-weight:bold;color:#212121">application-context.xml</p>
+<pre ><code class="language-java">&ltbean id="math" class="com.aa.beans.Math"/> 
+&ltbean id="loggingAspect" class="com.aa.beans.LoggingAspect"/> 
+&ltaop:config>  
+&ltaop:pointcut expression="execution(* com.aa.beans.Math.*(..))" id="pc1"/>  
+&ltaop:aspect id="la1" ref="loggingAspect">   
+&ltaop:around method="log" pointcut-ref="pc1"/>  
+&lt/aop:aspect> 
+&lt/aop:config>  </code></pre>
+<p>In the above declaration if you observe we have used a pointcut expression rather than referring to a class representing as pointcut. This pointcut expression is a static point cut expression, and it has been written in OGNL expression language. OGNL stands for Object Graph Navigation Language.<br><br> 
+Expression starts with execution as a word representing apply the advice to all the class executions and the syntax is described below.</p>
+<pre ><code class="language-java">execution(&ltreturntype&gt &ltpackagename&gt.&ltclassname&gt.&ltmethodname&gt(&ltarguments&gt))  </code></pre>
+<p>When you create a core container with the following configuration, spring ioc container while creating will apply the advice on the target class (based on the pointcut) and creates proxy classes and instantiates these classes and host in IOC container. In the above the "math" bean object will be created on the proxy after applying the advice, so when you request for context.getBean("math") instead of returing the original Math class object, IOC container will instantiates the proxy of Math class as the pointcut is matching to it and returns that object to you.</p>
+<p  style="font-weight:bold;color:#212121">Before Advice</p>
+<p>While working with Before Advice the entire approach is same like creating the aspect class and should declare a method, here the method should be public and the return type should be void as the Before advice cannot control the return value. The parameter to the advice method is JoinPoint rather than ProceedingJoinPoint as we don't have control on method execution.<br><br> 
+Once we write a method in the aspect class following these rules, we need to declare that method as before advice method in the configuration shown below.</p>
+<p  style="font-weight:bold;color:#212121">SecurityAspect.java</p>
+<pre ><code class="language-java">package com.ba.beans; 
+import org.aspectj.lang.JoinPoint; 
+public class SecurityAspect {  
+public void check(JoinPoint jp, long principal, int noOfYears,float rateOfInterest) throws Throwable {   
+System.out.println("Principal : " + principal);   
+AuthenticationManager am = new AuthenticationManager();   
+boolean flag = am.isAuthenticated();   
+if (flag == Boolean.FALSE) {    
+throw new IllegalAccessException("User not logged in");   
+}     
+} 
+} </code></pre>
+<p  style="font-weight:bold;color:#212121">application-context.xml</p>
+<pre ><code class="language-java">&ltaop:config>  
+&ltaop:pointcut expression="execution(* com.ba.beans.*.*(..)) and args(principal,noOfYears,rateOfInterest))" id="pc1" />  
+&ltaop:aspect id="ap1" ref="securityAspect">   
+&ltaop:before method="check" pointcut-ref="pc1" />  
+&lt/aop:aspect> 
+&lt/aop:config> </code></pre>
+<p>In the above code if you observe the advice method along with JoinPoint, it took the parameters as principle, noOfYears and rateOfInterest as well, these are the parameters which are there on your target class method. If you want to access those parameters straight away in the advice method, you can declare your advice method to accept those values in appropriate arguments, and you need to specify those method parameters as arguments in pointcut expression as args(arg1, arg2, arg3). Here the arg1, arg2 and arg3 are the argument names of the advice method indicating the target method parameters has to be copied to these arguments respectively. </p>
+<p  style="font-weight:bold;color:#212121">After Returning Advice </p>
+<p>In the after returning advice while writing the advice method in the aspect, you need to have declared the method with return type as void as it cannot control the return value and the method takes two parameters. The first parameter is the JoinPoint and the second would be the variable in which you want to receive the return value of the target method execution</p>
+<p  style="font-weight:bold;color:#212121">WeakKeyCheckerAspect.java</p>
+<pre ><code class="language-java">public class WeakKeyCheckerAspect {  
+public void checkKey(JoinPoint jp, int generatedKey) {   
+// write the code to execute the logic with the return value.  
+} 
+} </code></pre>
+<p  style="font-weight:bold;color:#212121">application-context.xml </p>
+<pre ><code class="language-java">&ltaop:config>  
+&ltaop:pointcut expression="execution(* com.ar.beans.*.*(..))"   id="pc1" />  
+&ltaop:aspect id="ap1" ref="weakKeyCheckerAspect">   
+&ltaop:afterReturning method="checkKey" returning=”generatedKey” pointcut-ref="pc1" />  
+&lt/aop:aspect> &lt/aop:config> </code></pre>
+<p  style="font-weight:bold;color:#212121">Throws Advice</p>
+<p>In this we need to write the aspect class with advice method taking the signature as below.</p>
+<pre ><code class="language-java">public void methodName([Method, args[], targetObject], subClassOfThrowable) </code></pre>
+<p>and the in declaration we need to declare the variable in which you are receiving the exception as throwing shown below.</p>
+<p  style="font-weight:bold;color:#212121">application-context.xml</p>
+<pre ><code class="language-java">&ltaop:config>  
+&ltaop:pointcut expression="execution(* com.ta.beans.*.*(..))" id="pc1" />  
+&ltaop:aspect id="ap1" ref="loggingExceptionAspect">   
+&ltaop:afterReturning method="handle" throwing=”ex” pointcut-ref="pc1" />  
+&lt/aop:aspect> 
+&lt/aop:config> </code></pre>
+<div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">AspectJ Annotation AOP </span></div>
+<p>In this approach instead of using declarations to expose the classes as aspect and advice, we will annotate the classes with annotations. In order to make a class as aspect, we need to annotate the class with @Aspect. To expose a method as advice method, we need to annotate the method in aspect class with @Around or @Before or @AfterReturning or @AfterThrowing representing the type of advice. These annotations take the pointcut expression as value in them.</p>
+<p  style="font-weight:bold;color:#212121">Working with advices</p>
+<p>The same rules defined in declarative aop section applies in writing the advice method in annotation approach as well, but only difference is annotate the class as @Aspect and annotate the method with @Around("pointcut expression") shown below.</p>
+<p  style="font-weight:bold;color:#212121">LoggingSecurityAspect.java</p>
+<pre ><code class="language-java">package com.ba.beans; 
+import org.aspectj.lang.JoinPoint; 
+import org.aspectj.lang.ProceedingJoinPoint; 
+import org.aspectj.lang.annotation.AfterReturning; 
+import org.aspectj.lang.annotation.AfterThrowing; 
+import org.aspectj.lang.annotation.Around; 
+import org.aspectj.lang.annotation.Aspect; 
+import org.aspectj.lang.annotation.Before; 
+import org.aspectj.lang.annotation.Pointcut; 
+@Aspect public class LoggingSecurityAspect { 
+@Around("execution(* com.ba.beans.Math.*(..))")  
+public Object log(ProceedingJoinPoint pjp) throws Throwable {   
+String methodName = pjp.getSignature().getName();   
+System.out.println("entering into " + methodName);   
+Object ret = pjp.proceed();   
+System.out.println("exiting from " + methodName);   
+return ret;  
+} 
+} </code></pre>
+<p>In order to detect the annotations marked on the classes, we need to add &ltaop:aspect-autoproxy/> tag in the configuration. 
+If we are using the pointcut expression on the multiple advice methods, instead of rewriting the expression in all the places you can declare a method representing the pointcut expression. Annotate that method with @Pointcut("expression") and in the @Around or @Before or other advice annotations, use the method name as value representing the pointcut expression shows below.</p>
+<p  style="font-weight:bold;color:#212121">LoggingSecurityAspect.java</p>
+<pre ><code class="language-java">package com.ba.beans; 
+import org.aspectj.lang.JoinPoint; 
+import org.aspectj.lang.ProceedingJoinPoint; 
+import org.aspectj.lang.annotation.AfterReturning; 
+import org.aspectj.lang.annotation.AfterThrowing; 
+import org.aspectj.lang.annotation.Around; 
+import org.aspectj.lang.annotation.Aspect; 
+import org.aspectj.lang.annotation.Before; 
+import org.aspectj.lang.annotation.Pointcut; 
+@Aspect public class LoggingSecurityAspect {  
+@Pointcut("execution(* com.ba.beans.Math.*(..))")  
+public void mathPointcut() {  
+}  
+@Around("mathPointcut()")  
+public Object log(ProceedingJoinPoint pjp) throws Throwable {   
+String methodName = pjp.getSignature().getName();   
+System.out.println("entering into " + methodName);   
+Object ret = pjp.proceed();   
+System.out.println("exiting from " + methodName);   return ret;  
+}  
+@Before("mathPointcut()")  
+public void check(JoinPoint jp) throws Throwable {   
+AuthenticationManager am = new AuthenticationManager();   
+boolean flag = am.isAuthenticated();   
+if (flag == false) {    
+throw new IllegalAccessException("Invalid user/pwd");   
+}   
+System.out.println("Authenticated succesfully");  
+}  
+@AfterThrowing(pointcut = "mathPointcut()", throwing = "ex")  
+public void handle(IllegalAccessException ex) {   
+System.out.println("I am in handle method");   
+System.out.println("Exception Message : " + ex.getMessage());  
+}  
+@AfterReturning(pointcut = "mathPointcut()", returning = "sum")  
+public void monitor(JoinPoint jp, int sum) {   
+System.out.println("In monitor method");   
+System.out.println("Returning value : " + sum);  
+} 
+} </code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+</div>
+</div>
+<script>var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-([\w-]+)\b/i,t=0,n=_self.Prism={manual:_self.Prism&&_self.Prism.manual,disableWorkerMessageHandler:_self.Prism&&_self.Prism.disableWorkerMessageHandler,util:{encode:function(e){return e instanceof r?new r(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e,t){var r=n.util.type(e);switch(t=t||{},r){case"Object":if(t[n.util.objId(e)])return t[n.util.objId(e)];var a={};t[n.util.objId(e)]=a;for(var l in e)e.hasOwnProperty(l)&&(a[l]=n.util.clone(e[l],t));return a;case"Array":if(t[n.util.objId(e)])return t[n.util.objId(e)];var a=[];return t[n.util.objId(e)]=a,e.forEach(function(e,r){a[r]=n.util.clone(e,t)}),a}return e}},languages:{extend:function(e,t){var r=n.util.clone(n.languages[e]);for(var a in t)r[a]=t[a];return r},insertBefore:function(e,t,r,a){a=a||n.languages;var l=a[e];if(2==arguments.length){r=arguments[1];for(var i in r)r.hasOwnProperty(i)&&(l[i]=r[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in r)r.hasOwnProperty(i)&&(o[i]=r[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===a[e]&&t!=e&&(this[t]=o)}),a[e]=o},DFS:function(e,t,r,a){a=a||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],r||l),"Object"!==n.util.type(e[l])||a[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||a[n.util.objId(e[l])]||(a[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,a)):(a[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,a)))}},plugins:{},highlightAll:function(e,t){n.highlightAllUnder(document,e,t)},highlightAllUnder:function(e,t,r){var a={callback:r,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var l,i=a.elements||e.querySelectorAll(a.selector),o=0;l=i[o++];)n.highlightElement(l,t===!0,a.callback)},highlightElement:function(t,r,a){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1].toLowerCase(),i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,t.parentNode&&(o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l));var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(n.hooks.run("before-sanity-check",u),!u.code||!u.grammar)return u.code&&(n.hooks.run("before-highlight",u),u.element.textContent=u.code,n.hooks.run("after-highlight",u)),n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),r&&_self.Worker){var g=new Worker(n.filename);g.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,a&&a.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},g.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,a&&a.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,a){var l={code:e,grammar:t,language:a};return n.hooks.run("before-tokenize",l),l.tokens=n.tokenize(l.code,l.grammar),n.hooks.run("after-tokenize",l),r.stringify(n.util.encode(l.tokens),l.language)},matchGrammar:function(e,t,r,a,l,i,o){var s=n.Token;for(var u in r)if(r.hasOwnProperty(u)&&r[u]){if(u==o)return;var g=r[u];g="Array"===n.util.type(g)?g:[g];for(var c=0;c<g.length;++c){var h=g[c],f=h.inside,d=!!h.lookbehind,m=!!h.greedy,p=0,y=h.alias;if(m&&!h.pattern.global){var v=h.pattern.toString().match(/[imuy]*$/)[0];h.pattern=RegExp(h.pattern.source,v+"g")}h=h.pattern||h;for(var b=a,k=l;b<t.length;k+=t[b].length,++b){var w=t[b];if(t.length>e.length)return;if(!(w instanceof s)){if(m&&b!=t.length-1){h.lastIndex=k;var _=h.exec(e);if(!_)break;for(var j=_.index+(d?_[1].length:0),P=_.index+_[0].length,A=b,x=k,O=t.length;O>A&&(P>x||!t[A].type&&!t[A-1].greedy);++A)x+=t[A].length,j>=x&&(++b,k=x);if(t[b]instanceof s)continue;I=A-b,w=e.slice(k,x),_.index-=k}else{h.lastIndex=0;var _=h.exec(w),I=1}if(_){d&&(p=_[1]?_[1].length:0);var j=_.index+p,_=_[0].slice(p),P=j+_.length,N=w.slice(0,j),S=w.slice(P),C=[b,I];N&&(++b,k+=N.length,C.push(N));var E=new s(u,f?n.tokenize(_,f):_,y,_,m);if(C.push(E),S&&C.push(S),Array.prototype.splice.apply(t,C),1!=I&&n.matchGrammar(e,t,r,b,k,!0,u),i)break}else if(i)break}}}}},tokenize:function(e,t){var r=[e],a=t.rest;if(a){for(var l in a)t[l]=a[l];delete t.rest}return n.matchGrammar(e,r,t,0,0,!1),r},hooks:{all:{},add:function(e,t){var r=n.hooks.all;r[e]=r[e]||[],r[e].push(t)},run:function(e,t){var r=n.hooks.all[e];if(r&&r.length)for(var a,l=0;a=r[l++];)a(t)}}},r=n.Token=function(e,t,n,r,a){this.type=e,this.content=t,this.alias=n,this.length=0|(r||"").length,this.greedy=!!a};if(r.stringify=function(e,t,a){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return r.stringify(n,t,e)}).join("");var l={type:e.type,content:r.stringify(e.content,t,a),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:a};if(e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o=Object.keys(l.attributes).map(function(e){return e+'="'+(l.attributes[e]||"").replace(/"/g,"&quot;")+'"'}).join(" ");return"<"+l.tag+' class="'+l.classes.join(" ")+'"'+(o?" "+o:"")+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(n.disableWorkerMessageHandler||_self.addEventListener("message",function(e){var t=JSON.parse(e.data),r=t.language,a=t.code,l=t.immediateClose;_self.postMessage(n.highlight(a,n.languages[r],r)),l&&_self.close()},!1),_self.Prism):_self.Prism;var a=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return a&&(n.filename=a.src,n.manual||a.hasAttribute("data-manual")||("loading"!==document.readyState?window.requestAnimationFrame?window.requestAnimationFrame(n.highlightAll):window.setTimeout(n.highlightAll,16):document.addEventListener("DOMContentLoaded",n.highlightAll))),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(?:true|false)\b/,"function":/[a-z0-9_]+(?=\()/i,number:/\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.java=Prism.languages.extend("clike",{keyword:/\b(?:abstract|continue|for|new|switch|assert|default|goto|package|synchronized|boolean|do|if|private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|void|class|finally|long|strictfp|volatile|const|float|native|super|while)\b/,number:/\b0b[01]+\b|\b0x[\da-f]*\.?[\da-fp-]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?[df]?/i,operator:{pattern:/(^|[^.])(?:\+[+=]?|-[-=]?|!=?|<<?=?|>>?>?=?|==?|&[&=]?|\|[|=]?|\*=?|\/=?|%=?|\^=?|[?:~])/m,lookbehind:!0}}),Prism.languages.insertBefore("java","function",{annotation:{alias:"punctuation",pattern:/(^|[^.])@\w+/,lookbehind:!0}}),Prism.languages.insertBefore("java","class-name",{generics:{pattern:/<\s*\w+(?:\.\w+)?(?:\s*,\s*\w+(?:\.\w+)?)*>/i,alias:"function",inside:{keyword:Prism.languages.java.keyword,punctuation:/[<>(),.:]/}}});
+!function(){if("undefined"!=typeof self&&self.Prism&&self.document){var e="line-numbers",t=/\n(?!$)/g,n=function(e){var n=r(e),s=n["white-space"];if("pre-wrap"===s||"pre-line"===s){var l=e.querySelector("code"),i=e.querySelector(".line-numbers-rows"),a=e.querySelector(".line-numbers-sizer"),o=l.textContent.split(t);a||(a=document.createElement("span"),a.className="line-numbers-sizer",l.appendChild(a)),a.style.display="block",o.forEach(function(e,t){a.textContent=e||"\n";var n=a.getBoundingClientRect().height;i.children[t].style.height=n+"px"}),a.textContent="",a.style.display="none"}},r=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null};window.addEventListener("resize",function(){Array.prototype.forEach.call(document.querySelectorAll("pre."+e),n)}),Prism.hooks.add("complete",function(e){if(e.code){var r=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(r&&/pre/i.test(r.nodeName)&&(s.test(r.className)||s.test(e.element.className))&&!e.element.querySelector(".line-numbers-rows")){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s," ")),s.test(r.className)||(r.className+=" line-numbers");var l,i=e.code.match(t),a=i?i.length+1:1,o=new Array(a+1);o=o.join("<span></span>"),l=document.createElement("span"),l.setAttribute("aria-hidden","true"),l.className="line-numbers-rows",l.innerHTML=o,r.hasAttribute("data-start")&&(r.style.counterReset="linenumber "+(parseInt(r.getAttribute("data-start"),10)-1)),e.element.appendChild(l),n(r),Prism.hooks.run("line-numbers",e)}}}),Prism.hooks.add("line-numbers",function(e){e.plugins=e.plugins||{},e.plugins.lineNumbers=!0}),Prism.plugins.lineNumbers={getLine:function(t,n){if("PRE"===t.tagName&&t.classList.contains(e)){var r=t.querySelector(".line-numbers-rows"),s=parseInt(t.getAttribute("data-start"),10)||1,l=s+(r.children.length-1);s>n&&(n=s),n>l&&(n=l);var i=n-s;return r.children[i]}}}}}();
+!function(){"undefined"!=typeof self&&!self.Prism||"undefined"!=typeof global&&!global.Prism||Prism.hooks.add("wrap",function(e){"keyword"===e.type&&e.classes.push("keyword-"+e.content)})}();
+</script>
+</body>
+</html> 
