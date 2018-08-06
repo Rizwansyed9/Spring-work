@@ -249,43 +249,7 @@ tr:nth-child(even) {
 <div class="card">
  
   <div class="container">
-  <h3>Spring Annotation Support</h3>
-<div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">Introduction to J2EE Annotation</span></div>
-<p>Annotation is the code about the code that is metadata about the program itself. In other words information about the code is provided at the source code. Annotations are parsed/processed by compilers, annotation-processing tools and also executed at runtime.<br><br> 
-Annotations have been introduced in JDK 1.5. It allows the programmers to specify the information about the code at the source code level itself. There are several ways we can use annotations. Few helps in understanding the source code (like documentation assistance) @override is the annotation that will be used when we override a method from base class. This annotation doesn't have any impact on run-time behavior, rather it helps javadoc complier to generate documentation based on it.<br><br> 
-Apart from these annotations we have another way in using annotations which assist source code generators to generate source code using them. If we take example as Web Services, in order to expose a class as web service, we need to mark the class as @WebService. This annotation would be read by a tool and generates class to expose that class as web service.<br><br> 
-Along with this there is another way, where when you mark a class with annotation, the run-time engine will executes the class based on that annotation with which it marked. For example, when you mark a class with @EJB, the class would be exposed as Enterprise Java Bean by the container rather than a simple pojo.<br><br> 
-By the above we can understand that using annotations, a programmer can specify the various behavioral aspects of your code like documentation, code generation and runtime behavior. This helps in RAPID application development where in instead of specifying the information about your code in xml configuration file, the same can be specified by marking your classes with annotations.<br><br> 
-Note: - Always your annotation configuration will be overwritten with the xml configuration if provided.</p>
-<div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">Spring Annotation Support </span></div>
-<p>Spring support to annotations is an incremental development effort. Spring 2.0 has a very little support to annotation, when it comes to spring 2.5; it has extended its framework to support various aspects of spring development using annotations. In spring 3.0 it started supporting java config project annotations as well.<br><br> 
-The journey to spring annotations has been started in spring 2.0; it has added @Configuration, @Repository and @Required annotations. Along with this it added support to declarative and annotation based aspectj AOP.<br><br> 
-In spring 2.5 it has added few more annotations @Autowired, @Qualifier and @Scope. In addition in introduced stereotype annotations @Component, @Controller and @Service.<br><br> 
-In spring 3.0 few more annotations has been added like @Lazy, @Bean, @DependsOn etc. In addition to spring based metadata annotation support, it has started adoption JSR - 250 Java Config project annotations like @PostConstruct, @PreDestory, @Resource, @Inject and @Named etc.<br><br> 
-The below table list spring supported and Java Config project supported annotations.  </p>    
-<img src="../images/four1.jpg" width="100%" height="200px">
-<p  style="font-weight:bold;color:#212121">Working with @Configuration and @Bean </p>
-<p>Instead of declaring a class as spring bean in a configuration file, you can declare it in a class as well. The class in which you want to provide the configuration about other beans, that class is called configuration class and you need to annotate with @Configuration. In this class you need to provide methods which are responsible for creating objects of your bean classes, these methods has to be annotated with @Bean.<br><br>
-Now while creating the core container, instead of using XMLBeanFactory, you need to create it using AnnotationConfigApplicationContext by passing the configuration class as input</p>
-<p  style="font-weight:bold;color:#212121">AppConfig.java</p>
-<pre ><code class="language-java">@Configuration public class AppConfig {   
-@Bean   public MyService myService() {       
-return new MyServiceImpl();   
-} 
-} </code></pre>
-<p  style="font-weight:bold;color:#212121">MyService.java</p>
-<pre ><code class="language-java">public class MyService {  
-public void doSomeStuff() {   
-// some dummy logic  
-} 
-} </code></pre>
-<p  style="font-weight:bold;color:#212121">ConfigurationTest.java</p>
-<pre ><code class="language-java">ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class); 
-MyService myService = ctx.getBean(MyService.class); 
-myService.doSomeStuff(); </code></pre>
-<p  style="font-weight:bold;color:#212121">Working with @Required</p>
-<p>In spring 1.x onwards we have dependency check. For a bean if you want to detect unresolved dependencies of a bean, you can use dependency check. In this IOC container will check whether all the bean dependencies, which is expressed in its properties are satisfied or not. The problem with dependency check is you can’t impose restriction on a certain property, either you need to check the dependencies on all simple or object or all.<br><br> 
-In 2.0, it has introduced an annotation @Required and dependency check has been completely removed in 2.5. Using @Required annotation you can make, a particular property has been set with value or not.</p>
+ <p>In 2.0, it has introduced an annotation @Required and dependency check has been completely removed in 2.5. Using @Required annotation you can make, a particular property has been set with value or not.</p>
 <p  style="font-weight:bold;color:#212121">Engine.java</p>
 <pre ><code class="language-java">package com.annotation.beans; 
 public class Engine {  
@@ -304,7 +268,7 @@ public void setType(String type) {
 this.type = type;  
 } 
 }  </code></pre>
-<p>You can use @Required on a setter level to mark it as mandatory. Simply using @Required annotation will not enforce the property checking, you also need to register an RequiredAnnotationBeanPostProcessor in the configuration file as shown below. </p>
+<p style="word-break: break-all;">You can use @Required on a setter level to mark it as mandatory. Simply using @Required annotation will not enforce the property checking, you also need to register an RequiredAnnotationBeanPostProcessor in the configuration file as shown below. </p>
 <p  style="font-weight:bold;color:#212121">application-context.xml</p>
 <pre ><code class="language-java">&ltbean id="engine" class="com.annotation.beans.Engine">  
 &ltproperty name="id" value="22"/>  
@@ -316,7 +280,7 @@ this.type = type;
 (OR) 
 &ltbean class= "org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />)  </code></pre>
 <p  style="font-weight:bold;color:#212121">Working with @Autowire</p>
-<p>You can enable autowiring using @Autowire annotation rather than configuration approach. Unlike your declarative &ltbean autowire="byName/byType/constructor"/> etc, in annotation driven we don't have any modes.<br><br> 
+<p style="word-break: break-all;">You can enable autowiring using @Autowire annotation rather than configuration approach. Unlike your declarative &ltbean autowire="byName/byType/constructor"/> etc, in annotation driven we don't have any modes.<br><br> 
 In annotation based approach you may mark an attribute of a target class or a setter or a constructor or any arbitrary method for injecting the dependent object. In all the cases it will performs autowiring byType. 
 @Autowired annotation has an attribute required=true (@Autowired(required=true)). By default required is true. When you use required=true, while creating the target class object it will try to find the appropriate dependent class object in IOC container, if it couldn't find one the container will throws exception without creating core container. 
 At any point of time out of available number of constructors, you can mark only one constructor with @Autowired(required=true) and remaining should be set to false. 
@@ -367,181 +331,8 @@ this.engine = engine;
 &lt/bean> 
 &ltbean id="motor" class="com.annotation.beans.Motor"/> 
 &ltcontext:annotation-config/> </code></pre>
-<p>In order to detect @Autowire either you need to use &ltcontext:annotation-config/> or need to declare a bean whose class is  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor</p>
-<p  style="font-weight:bold;color:#212121">Working with @Qualifier</p>
-<p>If you have more than one beans of type Engine in the configuration, as @Autowire will perform injection byType, it will not be able to make the decision of which bean has to be injected and will raise ambiguity error. To resolve this we need to perform byName, this can be done with @Qualifier as shown below. </p>
-<p  style="font-weight:bold;color:#212121">Using Qualifier</p>
-<pre ><code class="language-java">(ignored few sections for clarity) 
-public class Motor {  private Engine engine; 
-@Autowired(required=false)  
-@Qualifier("engine2")  
-public void setEngine(Engine engine) {   
-this.engine = engine;  
-} 
-…. 
-}  </code></pre>
-<p  style="font-weight:bold;color:#212121">application-context.xml</p>
-<pre ><code class="language-java">&ltbean id="engine" class="com.annotation.beans.Engine">  
-&ltproperty name="id" value="22"/>  &ltproperty name="type" value="T1"/>  
-&ltqualifier value="myengine"/> 
-&lt/bean> 
-&ltbean id=”maruthiengine” class="com.annotation.beans.Engine">  
-&ltproperty name="id" value="22"/>  
-&ltproperty name="type" value="T1"/>  
-&ltqualifier value="engine2"/> 
-&lt/bean> 
-&ltbean id="motor" class="com.annotation.beans.Motor"/> 
-&ltcontext:annotation-config/> </code></pre>
-<p>Only the bean whose qualifier value is "engine2" will be injected into Motor class engine attribute, so indirectly using @Qualifier we are able to perform byName injection. </p>
-<p  style="font-weight:bold;color:#212121">Working with stereotype annotations @Component, @Repository, @Service and @Controlle</p>
-<p>In addition to @Repository annotation in spring 2.0, spring 2.5 has added stereotype annotations @Component, @Service and @Controller to make your classes as spring beans.<br><br> 
-When you mark you class with any of the above annotations those classes will be exposed as spring beans by the container. Based on the type of class you are trying to expose you need to use appropriate annotations.<br><br> 
-@Component - This acts as a more generic stereotype annotation to manage any component by spring, whereas the other annotations are specialized for the specific use cases.<br><br> 
-@Repository - This is used for exposing a DAO class as a spring bean. Even though database specific semantics are not imposed by using it, it helps you in applying exception translations on these @Repository classes using AOP.<br><br> 
-@Service - The service layer class are annotated with @Service, even though the current release of the spring doesn't has any impact on using it (other than exposing that class as spring bean), but future releases of spring might add some specializations on those classes.<br><br> 
-@Controller - When you mark a class with @Controller, it will be exposed as spring MVC controller to handle form submissions.<br><br> 
-In a spring core/spring jdbc applications you can use @Component, @Service or @Repository whereas @Controller can be used only in a Spring MVC application.<br><br> 
-The below examples shows how to use @Component, but you can mark that class with @Service or @Repository as well, where the end effect would be same. </p>
-<p  style="font-weight:bold;color:#212121">Motor.java </p>
-<pre ><code class="language-java">(ignored few sections for clarity) 
-@Component("motor") public class Motor {  private Engine engine; 
-@Autowired(required=false)  
-public void setEngine(Engine engine) {   
-this.engine = engine;  
-} 
-…. 
-} </code></pre>
-<p>With the above configuration, the class will be exposed as spring bean with id "motor". In order to detect the @Component or stereotype annotations you need to use the tag</p>
-<p>&ltcontext:component-scan base-package="PKG NAME OF THE CLASSES"/> as shown below.</p>
-<p  style="font-weight:bold;color:#212121">application-context.xml</p>
-<pre ><code class="language-java">&ltcontext:component-scan base-package="com.annotation.*"/> </code></pre>
-<p>You can retrieve the bean with context.getBean("motor").</p>
-<div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">Spring Java Config annotations</span></div>
-<p>As explained earlier from spring 3.x it has added support to Java Config annotation support, this means when you mark you classes with any of the above discussed annotations like @Component or @Autowired, you classes will be tightly coupled with spring framework and will lose invasive feature of spring.<br><br> 
-In order to retain loosely coupled feature, it spring has added support to java annotations, so when we use these annotations in spring applications, those will be read by spring container and add spring specific behavior to your classes. If you use in J2EE environment, those will behave based on container specification.</p>
-<p  style="font-weight:bold;color:#212121">Working with @Inject</p>
-<p>@Inject is a j2ee specific annotation, used for injecting/autowiring one class into another. This is more similar to @Autowired spring annotation. But the difference between them is @Autowire supports required attribute where @Inject doesn't has it.<br><br>  
-@Inject also injects a bean into another bean byType as similar to @Autowired. The advantage of @Inject is it is from java (javax.inject package) which means even you separate your application from spring, still your classes can work with java rather than bounded to spring. </p>
-<p  style="font-weight:bold;color:#212121">Motor.java</p>
-<pre ><code class="language-java">(ignored few sections for clarity) 
-@Component(“motor”) public class Motor {  
-private Engine engine; 
-@Inject  public void setEngine(Engine engine) {   
-this.engine = engine;  
-} 
-…. 
-}  </code></pre>
-<p  style="font-weight:bold;color:#212121">Working with @Named</p>
-<p>There are two usages of @Named annotation</p>
-<ol>
-<li>When you try to inject a bean using @Inject annotation it will performs injection byType, if you have more than one beans of that type in the application, the container will throw ambiguity error. In order to resolve it you need to use @Named annotation</li>
-</ol>
-<p  style="font-weight:bold;color:#212121">application-context.xml</p>
-<pre ><code class="language-java">&ltbean id="engine" class="com.annotation.beans.Engine">  
-&ltproperty name="id" value="22"/>  
-&ltproperty name="type" value="T1"/>  
-&ltqualifier value="myengine"/> 
-&lt/bean> 
-&ltbean id="maruthiengine" class="com.annotation.beans.Engine">  
-&ltproperty name="id" value="22"/>  
-&ltproperty name="type" value="T1"/> &lt/bean> 
-&ltbean id="motor" class="com.annotation.beans.Motor"/> 
-&ltcontext:component-scan base-package="com.annotation.*"/> </code></pre>
-<p>In the above configuration you have two beans of type Engine, so when you try to inject the Engine into Motor by using @Inject, it will not be able to detect which bean has to be injected. So you need to mark the Engine attribute with @Named along with @Inject indicating the bean you want to inject show below.</p>
-<p  style="font-weight:bold;color:#212121">Motor.java</p>
-<pre ><code class="language-java">@Component("motor") 
-public class Motor {  
-private Engine engine; 
-@Inject  @Named("maruthiengine") 
-public void setEngine(Engine engine) {   
-this.engine = engine;  
-} 
-…. 
-} </code></pre>
-<ol>
-<li>Another use of @Named is instead of using the stereotype annotations of spring to expose your classes as spring beans, you can mark your class with @Named to expose it as spring bean show below.</li>
-</ol>
-<p  style="font-weight:bold;color:#212121">Motor.java</p>
-<pre ><code class="language-java">@Named("motor") 
-public class Motor {  
-private Engine engine; 
-@Inject  public void setEngine(Engine engine) {   
-this.engine = engine;  
-} 
-…. 
-} </code></pre>
-<p  style="font-weight:bold;color:#212121">Instead of using @Inject, you can also use @Resource, the difference between @Inject and @Resource it @Inject will perform the injection byType where as @Resource will perform the injection byName.</p>
-<p  style="font-weight:bold;color:#212121">Motor.java</p>
-<pre ><code class="language-java">@Named("motor") public class Motor {  private Engine engine; 
- 
- @Resource  public void setEngine(Engine engine) {   this.engine = engine;  } …. }  </code></pre>
-<p>So, we need to have a bean whose id is "engine" in the configuration or with the component declaration with this name</p>
-<p  style="font-weight:bold;color:#212121">application-context.xml</p>
-<pre ><code class="language-java">&ltbean id="engine" class="com.annotation.beans.Engine">  
-&ltproperty name="id" value="22"/>  
-&ltproperty name="type" value="T1"/>  
-&ltqualifier value="myengine"/> 
-&lt/bean> 
-&ltcontext:component-scan base-package="com.annotation.*"/> </code></pre>
-<p  style="font-weight:bold;color:#212121">Working with @PostConstruct and @PreDestroy </p>
-<p>As we discussed, Bean Lifecycle you can perform Initialization on a bean after injecting the dependent objects using init-method declaration or InitializingBean interface afterPropertiesSet and Destruction on a bean while removing a bean from core container using destroy-method or DisposableBean interface destroy() method.<br><br> 
-Along with the above two ways, you can mark any arbitrary method on a class with @PostContruct and @PreDestory annotations. When you mark a method with @PostConstruct annotation, this method will be invoked by core container after injecting the dependent objects into the bean. When you mark a method with @PreDestory annotation, this method will be invoked as part of bean destruction process.<br><br> 
-So, the @PostContruct and @PreDestory or annotation based lifecycle methods</p>
-<p  style="font-weight:bold;color:#212121">Motor.java</p>
-<pre ><code class="language-java">@Named("motor") 
-public class Motor {  
-private Engine engine;    
-@PostConstruct  public void init() {   
-// I will be invoked after performing injection  
-} 
-@Resource  public void setEngine(Engine engine) {   
-this.engine = engine;  
-} 
-@PreDestory public void release() {  
-// I will be invoked while I am removing from container 
-} 
-…. 
-} </code></pre>
+<p style="word-break: break-all;">In order to detect @Autowire either you need to use &ltcontext:annotation-config/> or need to declare a bean whose class is  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 		
 </div>
 </div>

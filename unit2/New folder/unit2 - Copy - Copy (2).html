@@ -373,9 +373,9 @@ class PrototypeEngine1 {
  } 
  } </code></pre>
  <p>But just testing against one Dummy or Prototype class I cannot certify my Bus is working, rather I should be able to test it against lot of prototype engines in this way. So always I need to keep on changing the class from which I need to extend from.</p>
- <table>
-  <th></th>
-  <th></th>
+ <table style="table-layout:fixed;
+width: 100%;">
+  
   <tr>
     <td><pre ><code class="language-java">class Bus extends PrototypeEngine2 {    
 	public void drive() {      
@@ -448,7 +448,8 @@ So to overcome this modifies your class structure into two hierarchies as Drivab
 <p>In the above diagram Vehicle is an abstract class. We created two more concrete classes Drivable and Flyable which contains logic for drive () and fly () respectively. As every vehicle may contain drive() or fly() or both, we declared both these classes as attributes inside Vehicle class.<br><br> 
  
 Now class Car & Flight extends from vehicle. Let's say in the class Car we have the method drive() it will calls the drive() method on the super class attribute drivable as shown below.</p>
-<table>
+<table style="table-layout:fixed;
+width: 100%;">
   
   <tr>
     <td>    <pre ><code class="language-java">class Car extends Vehicle {    
@@ -764,7 +765,8 @@ The xml will be placed as in-memory metadata in the IOC container and gives the 
 So, all the beans we declared in spring bean configuration file are created and managed in the IOC Container in spring.</p>
 <div style="text-align: left; background:#696969; padding:7px;"><span style="font-weight:bold;color:#ffffff">Constructor VS Setter Injection</span></div>
 <p>As said above we have two types of Dependency Injection’s, constructor injection and setter injection. Here are the points that make us understand when to use constructor inject and setter injection. </p>
-<table><tr>
+<table style="table-layout:fixed;
+width: 100%;"><tr>
   <th>  <p  style="font-weight:bold;color:#212121">Constructor Injection</p>
 </th>
   <th>  <p  style="font-weight:bold;color:#212121">Setter Injection </p>
